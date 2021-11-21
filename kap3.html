@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Oversikt</title>
+	<link rel="stylesheet" href="Style.css">
+	<link href="prism.css" rel="stylesheet">
+	<script src="prism.js"></script>
+</head>
+<body>
+
+<h1>Kapittel 3: Input</h1>
+
+
+<div id = "master_innlegg">
+<p>Vi tenker ofte på et program som noe en bruker kan påvirke. Når vi programmerer i Python går det an å skrive kode der en bruker kan endre verdier i koden. Programmet fra forrige kapittel er et eksempel på dette. De tre tallene trenger ikke være 5, 10 og 12. En bruker kan endre på disse tallene for å finne
+gjennomsnittet av tre andre tall.</p>
+</div>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+tall1 = 5
+tall2 = 10
+tall3 = 12
+
+# Regner ut gjennomsnittet til tall1, tall2 og tall3:
+gjennomsnitt = (tall1 + tall2 + tall3)/3
+
+print(gjennomsnitt)
+</code>
+</pre>
+</div>
+</div>
+
+<div id = "master_innlegg">
+<p>En vanligere måte å få brukeren til å oppgi verdier på er gjennom <i>input</i> metoden. Når du skriver <i>input()</i> vil programmet vente til en bruker presser enter. Python vil da lese hva som ble skrevet. Vi kan lagre denne strengen på vanlig måte:</p>
+</div>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+tall1 = input()
+tall2 = input()
+tall3 = input()
+</code>
+</pre>
+</div>
+</div>
+
+
+<div id = "master_innlegg">
+<p>Her ser vi at <i>tall1</i>, <i>tall2</i> og <i>tall3</i> defineres gjennom bruker-input. Fordi <i>input()</i> henter inn tekst-streng må vi få Python til å oversette dette til tall. Under vises tre måter å oversette til tall på. </p>
+</div>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+tall1 = input()
+tall1 = int(tall1)
+tall2 = float(input())
+tall3 = eval(input())
+</code>
+</pre>
+</div>
+</div>
+
+<div id = "master_innlegg">
+<p>I linje to definerer vi <i>tall1</i> som heltallsversjonen av seg selv. Det er også mulig å gjøre dette samtidig som vi henter inputet, som vist i linje tre og fire. <br><b>int(streng)</b> oversetter en streng til ett heltall, <br><b>float(streng)</b> oversetter en streng til ett flyttall mens <br><b>eval(streng)</b> evaluerer strengen,
+og bestemmer om det er best å lagre den som heltall eller flyttall.</p>
+</div>
+
+<div id = "master_innlegg">
+<p>For å forklare brukeren hva hen skal gjøre, er det mulig å legge inn en forklarende tekst-streng inni <i>input</i> metoden. Denne påvirker ikke programmet på noen annen måte. Under er et løsningsforslag til oppgave 3 i forrige kapittel, der bruker-input er tatt med.</p>
+</div>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+print("Dette dataprogrammet finner gjennomsnittet til tre tall.")
+tall1 = float(input("Venligst oppgi ett tall: "))
+tall2 = float(input("Venligst oppgi ett tall: "))
+tall3 = float(input("Venligst oppgi ett tall: "))
+
+# Regner ut gjennomsnittet til tall1, tall2 og tall3:
+gjennomsnitt = (tall1 + tall2 + tall3)/3
+
+print(f"Gjennomsnittet til tallene {tall1}, {tall2} og {tall3} er: ")
+print(gjennomsnitt)
+</code>
+</pre>
+</div>
+</div>
+
+<div id = "master_innlegg"></div>
+<div id="footer">
+<a href="kap2_1.html" style="float:left;">Tilbake</a>
+<a href="python_trening.html" style="float:center;">Hjem</a>
+<a href="kap3_1.html" style="float:right;">Neste</a>
+</div>
+</body>
+
+</html>
