@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kapittel 2</title>
+	<link rel="stylesheet" href="Style.css">
+	<link href="prism.css" rel="stylesheet">
+	<script src="prism.js"></script>
+</head>
+<body>
+	<h1>Kapittel 2: Pythons fire grunnleggende typer</h1>
+
+<div id = "master_innlegg">
+<p>Python kan kan lagre og bruke fire grunnleggende typer. Vi sier grunnleggende fordi andre Python-typer vil utelukkende inneholde disse fire typene. På engelsk brukes begrepene <i>Primitive</i> (Grunnleggende) og <i>Non-Primitive</i>. De fire grunnleggende typene er:</p> <br>
+<ol>
+<li>Tekst-streng</li>
+<li>Flyttall</li>
+<li>Heltall</li>
+<li>Bollsk verdi</li>
+</ol>
+
+<h4>Tildeling</h4>
+<p>For å lagre en type må vi tildele den ett navn: &lt;<i>variabel_navn</i>&gt;= &lt;<i>type_verdi</i>&gt;. Python har regler for hva som kan være et variabel-navn. Første tegn må være en bokstav eller understrek: _. Etter dette kan man også bruke tall. Det er ikke lov med mellomrom eller andre tegn enn tall, bokstaver og understrek.
+I programmering brukes STORE_BOKSTAVER som navn på konstanter (verdier som ikke skal/kan endres) og små_bokstaver for variabler (verdier som kan endres). Dette er utelukkende for å gjøre det lettere å lese en kode. I noen språk vil det ikke være mulig å endre en constant etter den er definert. Dette er ikke tilfellet i Python.</p>
+</div>	
+
+	<div id = "koding">
+	<pre>
+		<code class="language-py">
+a = 5
+b = 6
+c = a + b
+print(c)
+		</code>
+	</pre>
+	</div>
+
+
+<div id = "master_innlegg">
+<h4>Tekst_streng</h4>
+<p>Vi kan lage en tekst streng på to ulike måter, enten ved å bruke en enslig apostrof: ', på hver side av strengen, eller bruke dobbel-apostrof: ", på hver side av strengen.</p>
+</div>	
+
+
+	<div id = "koding">
+	<pre>
+		<code class="language-py">
+navn1 = "Egil Dahle"
+navn2 = 'Egil Dahle'
+		</code>
+	</pre>
+	</div>
+
+<div id = "master_innlegg">
+<p>For Python er det ingen forskjell mellom de to strengene over.</p>
+</div>	
+
+<div id = "master_innlegg">
+<h4>Heltall og flyttall</h4>
+<p>Et heltall er ett tall uten desimalverdier. Et flyttall er et desimaltall lagret på en datamaskin. I begge tilfellene vil datamaskinen oversette tallet til ett binært tall, men desimaldelen av ett tall vil ha begrensett med lengde i det binære tallsystemet. Dette kan føre til en avrunding som gir feil tall. Prøv koden under for å 
+se et eksempel på slik avrundingsfeil: </p>
+</div>	
+
+	<div id = "koding">
+	<pre>
+		<code class="language-py">
+a = 9.4 		#Flyttall
+b = 9 			#Heltall
+c = .4			#Flyttall
+d = a - b - c 	#Flyttall
+print(d)
+		</code>
+	</pre>
+	</div>
+
+<div id = "master_innlegg">
+<p>I koden over definerer vi fire variabler. Vi ser også at det kommenteres om det er et heltall eller flyttall. Python overser alt etter # på en linje. Dersom et regnestykke inneholder flyttall og heltall blir resultatet ett flyttall.</p>
+</div>	
+
+
+<div id = "master_innlegg">
+<h4>Boolsk verdi</h4>
+<p>En bollsk verdi er en verdi som enten er <b>True</b> eller <b>False</b></p>
+</div>	
+
+	<div id = "koding">
+	<pre>
+		<code class="language-py">
+a = True 	#En sann verdi
+b = False	# En usann verdi
+c = 0		# En usann verdi
+d = 1		# En sann verdi
+d = "Hei"	# En sann verdi
+d = ""		# En usann verdi
+		</code>
+	</pre>
+	</div>
+
+
+
+<div id = "master_innlegg">
+<h4>Operatorer</h4>
+<p>Det er mulig å utføre matematiske operatorer på Python sine typer.</p><br>
+
+<table border="1">
+<thead>Python matematiske operatorer</thead>
+<tbody>
+<tr><th>Navn</th><th>Symbol</th><th>Syntaks</th></tr>
+</tbody>
+</table>
+</div>	
+
+
+
+<div id="footer">
+<a href="kap1.html" style="float:left;">Tilbake</a>
+<a href="python_trening.html" style="float:center;">Hjem</a>
+<a href="python_trening.html" style="float:right;">Neste</a>
+</div>
+
+</body>
+</html>
