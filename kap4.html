@@ -8,8 +8,146 @@
 </head>
 <body>
 
-<h1>Kapittel 4: Løkker</h1>
+<h1>Kapittel 4: Løkker og lister</h1>
 
+<div id = "master_innlegg">
+<p>En liste i Python er en ikke-grunnleggende type som kan inneholde flere ulike grunnleggende typer. Disse elementene blir gitt en plassering, der det første elementet får plass 0, andre får plass 1 osv.</p>
+</div>
+<div id = "koding">
+<pre>
+<code class="language-py">
+l = [1, True, "Hei", 5 + 5, "Mitt navn"]
+</code>
+</pre>
+</div>
+</div>
+<div id = "master_innlegg">
+<p>For å hente ut ett av elementene kan vi skrive liste_navn[elemnt_nummer]</p>
+</div>
+<div id = "koding">
+<pre>
+<code class="language-py">
+l = [1, True, "Hei", 5 + 5, "Mitt navn"]
+print(l[3])
+</code>
+</pre>
+</div>
+</div>
+<div id = "master_innlegg">
+<p>Dersom koden over blir kjørt priner Python ut heltallet 10, fordi det 3. elementet er 5+5=10.</p>
+</div>
+
+<div id = "master_innlegg">
+<p>Dersom vi vil gå gjennom alle elementene i listen kan vi bruke en for-løkke.</p>
+</div>
+<div id = "koding">
+<pre>
+<code class="language-py">
+l = [1, True, "Hei", 5 + 5, "Mitt navn"]
+for i in l:
+	print(i, " er ett element i listen")
+</code>
+</pre>
+</div>
+</div>
+<div id = "master_innlegg">
+<p><i>for i</i> er en enkel måte å definere en ny variabel, <i>i</i>, som tar verdien til elementene i listen, i tur og orden. Vi kan selvfølgelig bruke andre navn enn <i>i</i>. Den siste delen av linjen: <i>in l:</i> henviser løkken til listen l. Løkken skal altså gå gjennom hvert element inni listen l. Vi velger å printe
+elementet, sammen med en tekst-streng.</p>
+</div>
+
+<div id = "master_innlegg">
+<p>Noen ganger er vi mer interresert i å kjøre en løkke et bestemt antall ganger, enn hva den går gjennom. Under vises et eksempel på dette:</p>
+</div>
+<div id = "koding">
+<pre>
+<code class="language-py">
+for i in range(10):
+	print("Hei")
+</code>
+</pre>
+</div>
+
+<div id = "master_innlegg">
+<p>I koden over printes teksten <i>Hei</i> 10 ganger.</p>
+<p>Dersom vi vil finne ut hvem som er høyeste elev i klassen kan programmet se ut som:</p>
+</div>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+antall_elever = int(input("Venligst oppgi antall elever i klassen: "))
+elev_navn = []
+elev_høyde = []
+for i in range(antall_elever):
+	elev = input("Oppgi navn: ")
+	høyde = int(input(f"Oppgi høyden til {elev} i cm: "))
+	elev_navn.append(elev)
+	elev_høyde.append(høyde)
+	
+#
+# Kode som finner ut hvilken verdi i elev_høyde-listen som er størst.
+#
+</code>
+</pre>
+</div>
+
+<div id = "master_innlegg">
+<p>append() er en metode brukt for å legge til element i listen. I neste kapittel skal vi se hvordan vi kan få Python til å finne ut hvem som er høyest. For nå; vi har laget to lister, der en elev opptar den samme plasseringen i de to listene, elev_navn[5] er elev_høyde[5]cm høy.</p>
+</div>
+
+
+<div id = "master_innlegg">
+<p>for-løkken krever at vi på forhånd har bestemt antall gjennomkjøringer. Vi har en annen løkke, en som kan kjøre uendelig mange ganger (eller i hvertfall så lenge datamaskinen orker). </p>
+</div>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+while True:
+	print("HELLO, går det bra!!")
+</code>
+</pre>
+</div>
+
+
+<div id = "master_innlegg">
+<p>For å forstå denne løkken må vi tilbake til Python sine logiske operatorer, og boolske verdier (True/Flase).</p>
+
+<table border="1">
+<tbody>
+<tr><th>Navn</th><th>Symbol</th><th>Syntaks</th></tr>
+<tr><th>Er lik</th><th>&equals;</th><th>==</th></tr>
+<tr><th>Ulik</th><th>&ne;</th><th>!=</th></tr>
+<tr><th>Større</th><th>&gt;</th><th>></th></th></tr>
+<tr><th>Større eller lik</th><th>&geq;</th><th>>=</th></tr>
+<tr><th>Mindre</th><th>&lt;</th><th><</th></tr>
+<tr><th>Mindre eller lik</th><th>&leq;</th><th><=</th></th></tr>
+</tbody>
+</table>
+<p>while-løkken kjøres hver gang den boolske verdien er True; før den kjører gjennom en gang til kontrollere den om det fortsatt stemmer. Dette gir oss mange flere muligheter enn for-løkken. Kodene under gir noen eksempler på dette.</p>
+</div>
+<div id = "koding">
+<pre>
+<code class="language-py">
+m = 20
+while m != 29:
+	print(m, " er ulik ", 29)
+	m = m + 1
+</code>
+</pre>
+</div>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+navn = ["Egil", "Martin", "Sokrates"]
+m = 0
+while navn[m] != "Martin":
+	print(navn[m])
+	m = m + 1
+</code>
+</pre>
+</div>
 
 <div id = "master_innlegg"></div>
 <div id="footer">
