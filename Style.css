@@ -36,3 +36,9 @@ p{
    height: 54px;
    background:white;
 }
+
+table
+{ 
+margin-left: auto;
+margin-right: auto;
+}
