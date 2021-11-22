@@ -10,6 +10,123 @@
 
 <h1>Kapittel 5: If, else og elif</h1>
 
+<div id = "master_innlegg">
+<p>I Python fungerer if veldig likt som en while løkke. Den avgjør om koden inni if-påstanden skal kjøres bassert på om det er en boolsk verdi etter if eller ikke. Vi ser derfor først på de logiske operatorene igjen:</p>
+</div>
+
+<table border="1">
+<tbody>
+<tr><th>Navn</th><th>Symbol</th><th>Syntaks</th></tr>
+<tr><th>Er lik</th><th>&equals;</th><th>==</th></tr>
+<tr><th>Ulik</th><th>&ne;</th><th>!=</th></tr>
+<tr><th>Større</th><th>&gt;</th><th>></th></th></tr>
+<tr><th>Større eller lik</th><th>&geq;</th><th>>=</th></tr>
+<tr><th>Mindre</th><th>&lt;</th><th><</th></tr>
+<tr><th>Mindre eller lik</th><th>&leq;</th><th><=</th></th></tr>
+</tbody>
+</table>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+5 == 10  	# False
+5 == 5 		# True
+20 < 5		# False
+a = "Egil"
+b = "egil"
+a == b		# False
+a != b		# True
+</code>
+</pre>
+</div>
+
+<div id = "master_innlegg">
+<p>Vi kan ha flere if-påstander etter hverandre. Python vil da skjekke hver og en etter tur.</p>
+</div>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+a = 5
+b = int(input("Oppgi et heltall:"))
+if 5 < 10:
+	print("5 er mindre enn 10")
+if b != a:
+	print(f"{a} er ikke lik {b}")
+</code>
+</pre>
+</div>
+
+<div id = "master_innlegg">
+<p>Dersom vi vil at Python skal kjøre en kode dersom en if-påstand ikke stemte kan vi bruke else.</p>
+</div>
+<div id = "koding">
+<pre>
+<code class="language-py">
+a = int(input("Oppgi et heltall:"))
+b = int(input("Oppgi et annet heltall:"))
+
+if b != a:
+	print(f"{a} er ikke lik {b}")
+else:
+	print(f"{a} er lik {b}")
+</code>
+</pre>
+</div>
+
+<div id = "master_innlegg">
+<p>If kan alltid stå alene, mens else må komme etter en if eller en elif. Vi kan også ha flere if og elif etter hverandre, men bare ha en else. elif er ellers en blanding av if og else; dersom påstanden i den forrige if-påstanden eller elif-påstanden ikke stemmte testes denne elif-påstanden. Bare en print-streng vil vises
+når koden under har kjørt.</p>
+</div>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+a = int(input("Oppgi et heltall:"))
+b = int(input("Oppgi et annet heltall:"))
+
+if b != a:
+	print(f"{a} er ikke lik {b}")
+elif b < a:
+	print(f"{a} er større en {b}")
+elif b > a:
+	print(f"{a} er mindre en {b}")
+else:
+	print(f"{a} er lik {b}")
+</code>
+</pre>
+</div>
+
+<div id = "master_innlegg">
+<p>Vi kan nå fullføre programmet fra forrige kapittel, der vi skulle finne ut hvem som er høyest i klassen.</p>
+</div>
+
+<div id = "koding">
+<pre>
+<code class="language-py">
+antall_elever = int(input("Venligst oppgi antall elever i klassen: "))
+elev_navn = []
+elev_høyde = []
+for i in range(antall_elever):
+	elev = input("Oppgi navn: ")
+	høyde = int(input(f"Oppgi høyden til {elev} i cm: "))
+	elev_navn.append(elev)
+	elev_høyde.append(høyde)
+	
+høyeste_verdi = 0
+elev_nummer_høyeste = 0
+for elev_nummer in range(len(elev_navn) - 1):
+	ny_høyde = elev_høyde[elev_nummer]
+	if ny_høyde > høyeste_verdi:
+		høyeste_verdi = ny_høyde
+		elev_nummer_høyeste = elev_nummer
+	elev_nummer = elev_nummer + 1
+
+print(f"{elev_navn[elev_nummer_høyeste]} er den høyeste eleven, med sine {høyeste_verdi}cm")
+</code>
+</pre>
+</div>
+
 
 <div id = "master_innlegg"></div>
 <div id="footer">
