@@ -1,0 +1,15 @@
+\documentclass[]{standalone}
+\usepackage{tikz}
+
+
+\begin{document}
+\begin{tikzpicture}
+\path (-5,5) -- (5,5);
+\node[rotate = 0, fill = blue!10, draw, rounded corners=2pt, outer sep = 2pt, inner sep = 5pt, minimum size=50pt, text width=80pt, text centered](A) at (75:3) {Planlegge};
+\node[rotate = 0, fill = blue!10, draw, rounded corners=2pt, outer sep = 2pt, inner sep = 5pt, minimum size=50pt, text width=80pt, text centered](B) at (195:3) {Utvikle og teste};
+\node[rotate = 0, fill = blue!10, draw, rounded corners=2pt, outer sep = 2pt, inner sep = 5pt, minimum size=50pt, text width=80pt, text centered](C) at (315:3) {Evaluere};
+\draw[thick, ->] (A) edge[bend right=45] (B);
+\draw[thick, ->] (B) edge[bend right=45] (C);
+\draw[thick, ->] (C) edge[bend right=45] (A);
+\end{tikzpicture}
+\end{document}
