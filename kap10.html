@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Oversikt</title>
+	<link rel="stylesheet" href="Style.css">
+	<link href="prism.css" rel="stylesheet">
+	<script src="prism.js"></script>
+</head>
+<body>
+	<h1>Kapittel 10: Kryptering og hash-verdier i Python.</h1>
+
+<div id = "master_innlegg">
+<p>Vi kommer til å bruke krypteringer og eksempler ment for undervisning. IKKE BRUK DISSE TIL ANNET!!</p>
+</div>
+
+<div id = "master_innlegg"><h2>Hva er kryptering?</h2>
+<p>En av de enkleste krypteringene vi har er Cesar-siffer krypteringen. I denne byttes en bokstavene i en tekst ut med andre bokstaver for å kryptere.</p>
+</div>	
+
+<img src="kryptering1.png" width = 750px class = "center" alt = "">
+
+<div id = "master_innlegg">
+<p>I Cesar-siffer krypteringer blir alfabetet forskjøvet, som vist i bildet. Da trenger motaker å vite med hvor mye for å dekryptere. Det går også an å lage egne alfabet-rekkefølger. </p>
+</div>
+
+<img src="kryptering2.png" width = 750px class = "center" alt = "">
+
+<div id = "master_innlegg">
+<h2>Hva er en hash-verdi?</h2>
+<p>For å kontrollere at en fil ikke har blitt endret brukes hash-verdier. Dersom du går inn i GIT Gui; <b>Repository&#8594;Visualize master's History</b>, kan du finne en linje som sier <b>SHA 1 ID:</b> med en påfølgende kode. For eksempel <i>be1ac8cf485740dbcecb7ff3602952a4b8de6913</i>. Dette er
+en hash verdi. Denne verdien er et resultat av en tekst. Det er minst 1 til 1 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 sjanse for at to ulike filer har samme hash-verdi. To hash-verdier generert med samme protokoll har alltid lik lengde, uavhengig av tekstene sin lengde. Dette 
+betyr at det ikke er mulig å finne den orginale teksten dersom man bare har en hash-verdi.
+</p>
+<p>Git bruker SHA1 for å se om du har gjort endringer i filen. Det vil si at når du skanner en mappe vil Git finne hash-verdiene til alle filene, og se om disse er like de som alt er lagret.</p><p>SHA1 brukes ikke lengre til sikkerhet fordi man har funnet svakheter som gjør at, dersom man aktivt prøver å finne
+en slik kolisjon (to tekster med lik hash), kan man få det ned til 1 til 2 000 000 000 000 000 000.</p>
+<p>Dersom du bruker passordet <i>passord</i> til pålogging på en nettside som bruker <b>sha1</b>-protokollen, vil de lagre hash-verdien til passord: 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8</p>
+<p>For at du skal få tilgang til nettsiden må du kjøre en tekst-streng gjennom <i>sha1</i>-protokollen. Dersom denne gir rett hash-verdi vil du få tilgang. Dersom du prøver å bryte deg inn på en bruker på denne nettsiden, kan det godt være at du finner hash-verdien. Du vil allikevell ikke få tilgang
+til teksten uten at du vet hva passordet er. </p>
+</div>
+
+<div id = "master_innlegg"></div>
+<div id="footer">
+<a href="kap9.html" style="float:left;">Tilbake</a>
+<a href="python_trening.html" style="float:center;">Hjem</a>
+<a href="kap10_1.html" style="float:right;">Neste</a>
+</div>
+</body>
+
+</html>

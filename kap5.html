@@ -112,7 +112,11 @@ for i in range(antall_elever):
 	høyde = int(input(f"Oppgi høyden til {elev} i cm: "))
 	elev_navn.append(elev)
 	elev_høyde.append(høyde)
-	
+
+#
+# Under her kommer den nye delen av koden:
+#
+
 høyeste_verdi = 0
 elev_nummer_høyeste = 0
 for elev_nummer in range(len(elev_navn) - 1):

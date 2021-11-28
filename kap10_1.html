@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Oversikt</title>
+	<link rel="stylesheet" href="Style.css">
+	<link href="prism.css" rel="stylesheet">
+	<script src="prism.js"></script>
+</head>
+<body>
+	<h1>Kapittel 10.1: Hemmelige dokument.</h1>
+
+<div id = "master_innlegg">
+<p>INGEN AV EKSEMPLENE UNDER ER SIKKRE! BRUK OPPDATERTE KRYPTERINGSPROTOKOLLER!!</p>
+</div>
+
+
+
+<div id = "master_innlegg">
+<p>Du er en spion, og vil sende et hemmelig dokument hjem til Norge fra Sverige. Svensk etteretning overvåker nettverkskomunkasjonen din, så du kan ikke bare sende dokumentet som en e-mail. Du bestemmer deg for å bruke Python til å kryptere dokumentet.</p><p>For å gjøre dette må du først 
+installere <i>cryptography</i> pakken. I ledetekst skriver du <b>pip install cryptography</b>. Du er nå klar til å kryptere!</p>
+</div>
+
+<div id = "master_innlegg"><h3>Dokumentet:</h3>
+<p><i>Svenskene bruker IKEA til å infiltrere Norge. Vi må forberede oss!</i></p>
+</div>
+
+<div id = "master_innlegg">
+<p>Fordi vi ikke stoler på svenskene velger vi å lage en hash-verdi av dette viktige dokumentet. Da kan vi lett se om noen har endret på budskapet.</p>
+</div>
+
+	<div id = "koding">
+	<pre>
+		<code class="language-py">
+import hashlib
+h = hashlib.sha1(b"Svenskene bruker IKEA til aa infiltrere Norge. Vi maa forberede oss!").hexdigest()
+print(h)
+c24a830ba4ee3561be2a9387a10ef495c2832ea8
+		</code>
+	</pre>
+	</div>
+
+<div id = "master_innlegg">
+<p>Vi har nå kommet til krypteringen av teksten vår. De åtte første linjene i koden under er oppsettet til bruk av AES-krypteringsprotokollen. Vi legger også inn ekstra mellomrom på slutten av teksten. Dette er side AES krypterer 16-bytes av gangen; og venter med å kryptere til den har 16 bytes å kryptere. 
+For å ikke "miste" tekst legger vi inn mellomrom i dette eksempelet.</p>
+</div>
+
+	<div id = "koding">
+	<pre>
+		<code class="language-py">
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.backends import default_backend
+import os
+
+key = os.urandom(16)
+aesCipher = Cipher(algorithms.AES(key), modes.ECB(), backend = default_backend())
+aesEncryptor = aesCipher.encryptor()
+aesDecryptor = aesCipher.decryptor()
+
+print(aesEncryptor.update(b"Svenskene bruker IKEA til aa infiltrere Norge. Vi maa forberede oss!                                      "))
+b"/\xd0\xbe9\xa8i\x9d\x08\xf0\x8f^\xa4\x14q\x13\x8d%\xc9O\x08\x17Y\xe0{\xd6\x9ex%\x1ct\xbfs\x1a\x8a\xbb\xd8.&j\x983\xad\xd3vsK\r\xd2N\xc3\x9a\xbe9t\x9c0\x1aEw\xf1\x0cw\x0c\x8e\xc2\x9e6Y\x95\xa2\n\x99\x8eA\x97\xab1Hp\x18R'\xae\x1d7wX\xcax\x8e\xd8^\x9f\x84\xbb\x80"
+
+print(key)
+b'.\xa4+\xfc\xad\x0c>\xa5\x03"9\xc64@&\xf2'
+		</code>
+	</pre>
+	</div>
+</body>
+
+<div id = "master_innlegg"><h3>Beskjeden vi sender hjem:</h3>
+	<div id = "koding">
+	<pre>
+		<code class="language-py">
+b"/\xd0\xbe9\xa8i\x9d\x08\xf0\x8f^\xa4\x14q\x13\x8d%\xc9O\x08\x17Y\xe0{\xd6\x9ex%\x1ct\xbfs\x1a\x8a\xbb\xd8.&j\x983\xad\xd3vsK\r\xd2N\xc3\x9a\xbe9t\x9c0\x1aEw\xf1\x0cw\x0c\x8e\xc2\x9e6Y\x95\xa2\n\x99\x8eA\x97\xab1Hp\x18R'\xae\x1d7wX\xcax\x8e\xd8^\x9f\x84\xbb\x80"
+c24a830ba4ee3561be2a9387a10ef495c2832ea8
+		</code>
+	</pre>
+	</div>
+</div>
+
+<div id = "master_innlegg">
+<p>Vi sørger også for at hash-verdien til dokumentet blir sendt hjem til Norge. Vi velger her å sende den samtidig; svenskene vet jo ikke hvilken protokoll vi bruker! I dette eksempelet lages nøkkelen til krypteringen samtidig som vi krypterer. Dersom vi var spioner ville vi selvfølgelig hatt en nøkkel allerede.</p>
+<p>Vi kan nå dekryptere denne teksten:</p>
+</div>
+
+	<div id = "koding">
+	<pre>
+		<code class="language-py">
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.backends import default_backend
+import os
+
+key = b'.\xa4+\xfc\xad\x0c>\xa5\x03"9\xc64@&\xf2'
+aesCipher = Cipher(algorithms.AES(key), modes.ECB(), backend = default_backend())
+aesEncryptor = aesCipher.encryptor()
+aesDecryptor = aesCipher.decryptor()
+
+print(aesDecryptor.update(b"/\xd0\xbe9\xa8i\x9d\x08\xf0\x8f^\xa4\x14q\x13\x8d%\xc9O\x08\x17Y\xe0{\xd6\x9ex%\x1ct\xbfs\x1a\x8a\xbb\xd8.&j\x983\xad\xd3vsK\r\xd2N\xc3\x9a\xbe9t\x9c0\x1aEw\xf1\x0cw\x0c\x8e\xc2\x9e6Y\x95\xa2\n\x99\x8eA\x97\xab1Hp\x18R'\xae\x1d7wX\xcax\x8e\xd8^\x9f\x84\xbb\x80"))
+b'Svenskene bruker IKEA til aa infiltrere Norge. Vi maa forberede oss!                            '
+		</code>
+	</pre>
+	</div>
+	
+<div id = "master_innlegg">
+<p>Fjerner vi mellomrommene på slutten får vi teksten vi hadde på starten. Vi kan kontrollere dette ved å se hvilken hash-verdi teksten gir:</p>
+</div>
+
+	<div id = "koding">
+	<pre>
+		<code class="language-py">
+import hashlib
+h = hashlib.sha1(b'Svenskene bruker IKEA til aa infiltrere Norge. Vi maa forberede oss!').hexdigest()
+print(h)
+c24a830ba4ee3561be2a9387a10ef495c2832ea8
+		</code>
+	</pre>
+	</div>
+	
+<div id = "master_innlegg"></div>
+<div id="footer">
+<a href="kap10.html" style="float:left;">Tilbake</a>
+<a href="python_trening.html" style="float:center;">Hjem</a>
+</div>
+</body>
+</html>
