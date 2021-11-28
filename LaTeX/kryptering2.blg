@@ -1,0 +1,5 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'kryptering2.blg'
+[116] biber-MSWIN64:340> INFO - === 
+[581] Utils.pm:411> ERROR - Cannot find 'kryptering2.bcf'!
+[582] Biber.pm:132> INFO - ERRORS: 1
